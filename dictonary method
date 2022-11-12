@@ -1,0 +1,11 @@
+def minimumLoss(price):
+    l=[]
+    mapp={}
+    for i in range(len(price)):
+        mapp[price[i]]=i
+    price.sort()
+    for i in range(len(price)-1):
+        if mapp[price[i+1]]<mapp[price[i]]:
+            diff=abs(price[i]-price[i+1])
+            l.append(diff)
+    return min(l)
